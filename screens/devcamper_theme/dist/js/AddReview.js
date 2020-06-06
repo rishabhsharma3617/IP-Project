@@ -14,7 +14,7 @@ document.getElementById('subClicked').addEventListener('click',(e) => {
      }
    };
    
-   xhttp.open("GET", `http://localhost:5000/api/v1/users/${userId}`, true);
+   xhttp.open("POST", `http://localhost:5000/api/v1/users/${userId}`, true);
    xhttp.setRequestHeader('Content-Type', 'application/json')
    xhttp.setRequestHeader( "Authorization", "Bearer " + sessionStorage.getItem('token') );
    xhttp.send()
