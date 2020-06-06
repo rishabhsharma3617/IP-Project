@@ -10,8 +10,6 @@ console.log(bootcampId)
 
 
 
-document.getElementById('reviews1').setAttribute('href',`reviews.html?bootc=${bootcampId}`)
-document.getElementById('addreview').setAttribute('href',`add-review.html?bootc=${bootcampId}`)
 
 var courses = {}
 var bootcamp = {}
@@ -176,6 +174,9 @@ function init0()
     if (this.readyState == 4 && this.status == 200) {
       const response = JSON.parse(this.response)
       bootcamp = response
+      
+document.getElementById('reviews1').setAttribute('href',`reviews.html?bootc=${bootcampId}&title=${bootcamp.data.name}`)
+document.getElementById('addreview').setAttribute('href',`add-review.html?bootc=${bootcampId}&title=${bootcamp.data.name}`)
       console.log(bootcamp)
       init1()
       init2()
