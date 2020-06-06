@@ -11,6 +11,8 @@ login.addEventListener('click' , (event) => {
       if (this.readyState == 4 && this.status == 200) {
         const response = JSON.parse(this.response)
         sessionStorage.setItem('token' , response.token)
+        email.value = ''
+        password.value = ''
       }
     };
     
