@@ -10,6 +10,8 @@ function init()
     if (this.readyState == 4 && this.status == 200) {
       const response = JSON.parse(this.response)
       console.log(response)
+      sessionStorage.setItem('role' , response.data.role)
+      sessionStorage.setItem('u_id' , response.data._id)
     }
   };
   

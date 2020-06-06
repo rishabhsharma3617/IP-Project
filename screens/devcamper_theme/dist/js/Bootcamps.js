@@ -2,8 +2,49 @@ var findbyrad = document.getElementById('findbootcamp')
 var radius = document.getElementById('miles')
 var zip = document.getElementById('zip')
  
+
+function manage_bootcamp()
+{
+  
+}
+function manage_reviews()
+{
+   
+}
+
+if(sessionStorage.getItem('role') !== 'publisher')
+{
+  console.log('heyy')
+  document.getElementById('manage_bootcamp').setAttribute('style','display : none')
+  document.getElementById('manage_reviews').setAttribute('style','display : none')
+  // document.getElementById('manage_bootcamp').setAttribute('visibility','hidden')
+  // document.getElementById('manage_reviews').setAttribute('visibility','hidden')
+}
+
+
+
+
 var reviews = {}
 var bootcamps = {}
+var bootcampID
+function init2()
+{
+  
+  for(var i =0;i<bootcamps.count ; i++)
+  {
+    if(bootcamps.data[i].user === sessionStorage.getItem('u_id'))
+    {
+      bootcampID = bootcamps.data[i].user 
+    }
+  }
+   console.log(bootcampID)
+  if (bootcampID) {
+    document.getElementById('manage_bootcamp').setAttribute('href',`manage-bootcamp.html?bootc=${bootcampID}`)
+    document.getElementById('manage_reviews').setAttribute('href',`manage-reviews.html?bootc=${bootcampID}`)
+  } else {
+    document.getElementById('manage_bootcamp').setAttribute('href','manage-bootcamp-none.html')
+  }
+}
 function init(){
 
   var temp = document.createElement('div')
@@ -80,6 +121,7 @@ for (var i = 0; i < bootcamps.count; i++) {
   temp.appendChild(div1)
 }
 console.log(document.getElementById('containerID').appendChild(temp))
+init2()
 
 }
 function initReviews()
