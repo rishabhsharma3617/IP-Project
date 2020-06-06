@@ -8,7 +8,7 @@ console.log(bootcampId)
  
 document.getElementById('bootBack').setAttribute('href',`bootcamp.html?bootc=${bootcampId}`)
 document.getElementById('bootcampName').innerText = bootcampTitle
-document.getElementById('addReview').setAttribute('href',`add-review?bootc=${bootcampId}`)
+document.getElementById('addReview').setAttribute('href',`add-review.html?bootc=${bootcampId}`)
 
 var reviews = {}
 var user = {}
