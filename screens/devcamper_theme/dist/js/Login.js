@@ -2,6 +2,22 @@ var email = document.getElementById('email')
 var password = document.getElementById('password')
 var login = document.getElementById('loginButton')
 
+
+function init()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const response = JSON.parse(this.response)
+      console.log(response)
+    }
+  };
+  
+  xhttp.open("GET", "http://localhost:5000/api/v1/auth/me", true);
+  xhttp.setRequestHeader('Content-Type', 'application/json')
+  xhttp.setRequestHeader( "Authorization", "Bearer " + sessionStorage.getItem('token') );
+  xhttp.send();
+}
 login.addEventListener('click' , (event) => {
     console.log(email.value , password.value)
     event.preventDefault()
@@ -10,7 +26,9 @@ login.addEventListener('click' , (event) => {
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         const response = JSON.parse(this.response)
+        console.log(response)
         sessionStorage.setItem('token' , response.token)
+        init()
         email.value = ''
         password.value = ''
       }
