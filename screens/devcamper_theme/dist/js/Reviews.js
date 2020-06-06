@@ -10,6 +10,13 @@ document.getElementById('bootBack').setAttribute('href',`bootcamp.html?bootc=${b
 document.getElementById('bootcampName').innerText = bootcampTitle
 document.getElementById('addReview').setAttribute('href',`add-review.html?bootc=${bootcampId}`)
 
+if(!sessionStorage.getItem('token'))
+{
+  document.getElementById('addReview').setAttribute('style','display :none')
+}
+
+
+
 var reviews = {}
 var user = {}
 function init0(userId)

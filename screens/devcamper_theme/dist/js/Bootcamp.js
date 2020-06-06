@@ -3,12 +3,18 @@ console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 console.log(urlParams)
 const bootcampId = urlParams.get('bootc')
-console.log(bootcampId)
+const bootRating = urlParams.get('bootRating')
+ console.log(bootcampId)
  
 
 
+if(!sessionStorage.getItem('token'))
+{
+  document.getElementById('addreview').setAttribute('style','display :none')
+}
 
-
+var t = document.createTextNode(`${bootRating}`)
+document.getElementById('rating').appendChild(t)
 
 
 var courses = {}
@@ -152,14 +158,8 @@ function init2()
       const response = JSON.parse(this.response)
       reviews = response
       console.log(reviews)
-      var rating=0
-      for(var i =0;i<reviews.count;i++)
-      {
-        rating = rating + reviews.data[i].rating
-      }
-      rating = rating/reviews.count
-      var t = document.createTextNode(`${rating}`)
-      document.getElementById('rating').appendChild(t)
+
+
     }
   };
   

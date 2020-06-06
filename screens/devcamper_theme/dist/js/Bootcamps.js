@@ -95,7 +95,7 @@ for (var i = 0; i < bootcamps.count; i++) {
    
     t = document.createTextNode(`${bootcamps.data[i].name}`)
     a.appendChild(t)
-    a.href = `bootcamp.html?bootc=${bootcamps.data[i]._id}`
+    a.href = `bootcamp.html?bootc=${bootcamps.data[i]._id}&bootRating=${bootcamps.data[i].averageRating}`
    ////////////////////////////////////////
    var p1 = document.createElement('p')
    p1.setAttribute('class' , 'card-text')
