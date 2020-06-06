@@ -5,8 +5,17 @@ console.log(urlParams)
 const bootcampId = urlParams.get('bootc')
 console.log(bootcampId)
  
+
+
+
+
+
+document.getElementById('reviews1').setAttribute('href',`reviews.html?bootc=${bootcampId}`)
+document.getElementById('addreview').setAttribute('href',`add-review.html?bootc=${bootcampId}`)
+
 var courses = {}
 var bootcamp = {}
+var reviews = {}
 
 function init1()
 {
@@ -137,6 +146,29 @@ function init1()
   
 
 }
+function init2()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const response = JSON.parse(this.response)
+      reviews = response
+      console.log(reviews)
+      var rating=0
+      for(var i =0;i<reviews.count;i++)
+      {
+        rating = rating + reviews.data[i].rating
+      }
+      rating = rating/reviews.count
+      var t = document.createTextNode(`${rating}`)
+      document.getElementById('rating').appendChild(t)
+    }
+  };
+  
+  xhttp.open("GET", `http://localhost:5000/api/v1/bootcamps/${bootcampId}/reviews`, true);
+  xhttp.setRequestHeader('Content-Type', 'application/json')
+  xhttp.send()
+}
 function init0()
 {
   var xhttp = new XMLHttpRequest();
@@ -146,6 +178,8 @@ function init0()
       bootcamp = response
       console.log(bootcamp)
       init1()
+      init2()
+      
     }
   };
   
