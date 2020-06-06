@@ -85,7 +85,7 @@
 							<form action="reviews.html">
 								<div class="form-group">
 									<label for="rating"
-										>Rating: <span class="text-primary">8</span></label
+										>Rating: <span class="text-primary" id="ratingSpan">8</span></label
 									>
 									<input
 										type="range"
@@ -94,7 +94,8 @@
 										max="10"
 										step="1"
 										value="8"
-										id="rating"
+										onchange="changeScroll()"
+										id="scrollRating"
 									/>
 								</div>
 								<div class="form-group">
@@ -102,6 +103,7 @@
 										type="text"
 										name="title"
 										class="form-control"
+										id="reviewTitle"
 										placeholder="Review title"
 									/>
 								</div>
@@ -109,6 +111,7 @@
 									<textarea
 										name="review"
 										rows="10"
+										id="reviewText"
 										class="form-control"
 										placeholder="Your review"
 									></textarea>
@@ -118,6 +121,7 @@
 										type="submit"
 										value="Submit Review"
 										class="btn btn-dark btn-block"
+										id="subClicked"
 									/>
 								</div>
 							</form>
@@ -126,7 +130,9 @@
 				</div>
 			</div>
 		</section>
-
+		<script
+		src="js/AddReview.js"
+	></script>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
