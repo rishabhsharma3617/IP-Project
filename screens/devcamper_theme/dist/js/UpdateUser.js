@@ -1,8 +1,19 @@
 var save = document.getElementById('save')
 var email = document.getElementById('email')
 var nameid = document.getElementById('nameid')
-
-
+if(sessionStorage.getItem('role') !== 'publisher')
+{
+  console.log('heyy')
+  document.getElementById('manage_bootcamp').setAttribute('style','display : none')
+  document.getElementById('manage_reviews').setAttribute('style','display : none')
+  // document.getElementById('manage_bootcamp').setAttribute('visibility','hidden')
+  // document.getElementById('manage_reviews').setAttribute('visibility','hidden')
+}
+document.getElementById('logoutButton').addEventListener('click',() => {
+    sessionStorage.setItem('token','')
+    sessionStorage.setItem('u_id','')
+    sessionStorage.setItem('role','')
+  })
 save.addEventListener('click' , (event) => {
     event.preventDefault()
     var xhttp = new XMLHttpRequest();

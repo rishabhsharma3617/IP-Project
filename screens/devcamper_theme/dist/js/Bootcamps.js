@@ -11,6 +11,11 @@ function manage_reviews()
 {
    
 }
+document.getElementById('logoutButton').addEventListener('click',() => {
+  sessionStorage.setItem('token','')
+  sessionStorage.setItem('u_id','')
+  sessionStorage.setItem('role','')
+})
 
 if(sessionStorage.getItem('role') !== 'publisher')
 {

@@ -6,7 +6,14 @@ var publisher = document.getElementById('publisher')
 var user = document.getElementById('user')
 var confirmPass = document.getElementById('confirm-password')
 
-
+if(sessionStorage.getItem('role') !== 'publisher')
+{
+  console.log('heyy')
+  document.getElementById('manage_bootcamp').setAttribute('style','display : none')
+  document.getElementById('manage_reviews').setAttribute('style','display : none')
+  // document.getElementById('manage_bootcamp').setAttribute('visibility','hidden')
+  // document.getElementById('manage_reviews').setAttribute('visibility','hidden')
+}
 
 register.addEventListener('click' , (event) => {
     console.log(publisher.checked , user.checked  , email.value , password.value , nameid.value)
