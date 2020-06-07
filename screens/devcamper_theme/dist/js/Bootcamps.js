@@ -20,7 +20,10 @@ if(sessionStorage.getItem('role') !== 'publisher')
   // document.getElementById('manage_bootcamp').setAttribute('visibility','hidden')
   // document.getElementById('manage_reviews').setAttribute('visibility','hidden')
 }
-
+if(!sessionStorage.getItem('token'))
+{
+  document.getElementById('navbarDropdown').setAttribute('style','display : none')
+}
 
 
 

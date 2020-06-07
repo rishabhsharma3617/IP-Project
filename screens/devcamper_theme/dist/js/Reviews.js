@@ -14,7 +14,10 @@ if(!sessionStorage.getItem('token'))
 {
   document.getElementById('addReview').setAttribute('style','display :none')
 }
-
+if(!sessionStorage.getItem('token'))
+{
+  document.getElementById('navbarDropdown').setAttribute('style','display : none')
+}
 
 
 var reviews = {}

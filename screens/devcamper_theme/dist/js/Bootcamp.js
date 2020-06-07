@@ -15,7 +15,10 @@ if(!sessionStorage.getItem('token'))
 
 var t = document.createTextNode(`${bootRating}`)
 document.getElementById('rating').appendChild(t)
-
+if(!sessionStorage.getItem('token'))
+{
+  document.getElementById('navbarDropdown').setAttribute('style','display : none')
+}
 
 var courses = {}
 var bootcamp = {}
