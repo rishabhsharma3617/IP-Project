@@ -27,6 +27,9 @@ document.getElementById('logoutButton').addEventListener('click',() => {
 if(sessionStorage.getItem('u_boot'))
 {
     document.getElementById('manage_bootcamp').setAttribute('href','add-bootcamp.html')
-    document.getElementById('manage_bootcamp').setAttribute('href','add-bootcamp-none.html')
 
+
+}
+else{
+  document.getElementById('manage_bootcamp').setAttribute('href','add-bootcamp-none.html')
 }

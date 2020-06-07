@@ -9,7 +9,7 @@ var flag = false
  var bootcamp = {}
 if(sessionStorage.getItem('u_boot'))
 {
-    up()
+    
     flag = true
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -65,17 +65,17 @@ e.preventDefault()
         if (this.readyState == 4 && this.status == 200) {
          alert('Bootcamp Added successfully')
          var temp = JSON.parse(this.response)
-          named.value = ''
-          desc.value=''
-          url.value = ''
-          phone.value = ''
-          email.value = ''
+          named.value = temp.data.name
+          desc.value= temp.data.description
+          url.value = temp.data.website
+          phone.value = temp.data.phone
+          email.value = temp.data.email
           
-         document.getElementById('housing').checked = false,
-         document.getElementById('jobAssistance').checked = false,
-         document.getElementById('jobGuarantee').checked = false,
-         document.getElementById('acceptGi').checked = false,
-         document.getElementById('bcareer').value = []
+         document.getElementById('housing').checked = temp.data.housing
+         document.getElementById('jobAssistance').checked = temp.data.jobAssistance
+         document.getElementById('jobGuarantee').checked = temp.data.jobGuarantee
+         document.getElementById('acceptGi').checked = temp.data.acceptGi
+         document.getElementById('bcareer').value = temp.data.bcareer
          console.log(JSON.parse( this.response))
         }
         
