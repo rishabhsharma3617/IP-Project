@@ -2,7 +2,21 @@ var email = document.getElementById('email')
 var password = document.getElementById('password')
 var login = document.getElementById('loginButton')
 
-
+function init1()
+{
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const bootcamps = JSON.parse(this.response)
+      
+    
+    }
+  };
+  
+  xhttp.open("GET", "http://localhost:5000/api/v1/bootcamps", true);
+  xhttp.setRequestHeader('Content-Type', 'application/json')
+  xhttp.send();
+}
 function init()
 {
   var xhttp = new XMLHttpRequest();
@@ -12,6 +26,7 @@ function init()
       console.log(response)
       sessionStorage.setItem('role' , response.data.role)
       sessionStorage.setItem('u_id' , response.data._id)
+      init1()
     }
   };
   
