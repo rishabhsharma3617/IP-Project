@@ -59,7 +59,7 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.updateBootcamp = asyncHandler(async (req, res, next) => {
   let bootcamp = await Bootcamp.findById(req.params.id);
-
+console.log(bootcamp)
   if (!bootcamp) {
     return next(
       new ErrorResponse(`Bootcamp not found with id of ${req.params.id}`, 404)
@@ -67,7 +67,7 @@ exports.updateBootcamp = asyncHandler(async (req, res, next) => {
   }
 
   // Make sure user is bootcamp owner
-  if (bootcamp.user.toString() !== req.user.id && req.user.role !== 'admin') {
+  if (bootcamp.user.toString() !== req.user.id && req.user.role !== 'publisher') {
     return next(
       new ErrorResponse(
         `User ${req.params.id} is not authorized to update this bootcamp`,
