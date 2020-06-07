@@ -8,8 +8,12 @@ function init1()
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const bootcamps = JSON.parse(this.response)
-      
-    
+      var  uBoot = bootcamps.data.filter((bootcamp) => {
+        return bootcamp.user === sessionStorage.getItem('u_id')
+      })
+     if(!uBoot.length == 0)
+     sessionStorage.setItem('u_boot',uBoot[0]._id)
+     window.location.replace('bootcamps.html')
     }
   };
   

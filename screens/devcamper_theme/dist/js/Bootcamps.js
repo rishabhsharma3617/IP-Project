@@ -3,14 +3,7 @@ var radius = document.getElementById('miles')
 var zip = document.getElementById('zip')
  
 
-function manage_bootcamp()
-{
-  
-}
-function manage_reviews()
-{
-   
-}
+
 
 if(sessionStorage.getItem('role') !== 'publisher')
 {

@@ -14,7 +14,7 @@
 		/>
 		<title>DevCamper | Find a coding bootcamp</title>
 	</head>
-	<body>
+	<body onload="init()">
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-md navbar-dark bg-primary">
 			<div class="container">
@@ -43,10 +43,10 @@
 								<i class="fas fa-user"></i> Account
 							</a>
 							<div class="dropdown-menu">
-								<a class="dropdown-item" href="manage-bootcamp.html"
+								<a class="dropdown-item" href="manage-bootcamp.html" id="manage_bootcamp"
 									>Manage Bootcamp</a
 								>
-								<a class="dropdown-item" href="manage-reviews.html"
+								<a class="dropdown-item" href="manage-reviews.html" id="manage_reviews"
 									>Manage Reviews</a
 								>
 								<a class="dropdown-item" href="manage-account.html"
@@ -83,16 +83,16 @@
 									<div class="col-md-8">
 										<div class="card-body">
 											<h5 class="card-title">
-												<a href="bootcamp.html"
-													>Devworks Bootcamp
-													<span class="float-right badge badge-success"
-														>8.8</span
+												<a href="bootcamp.html" id="btitle"
+													>
+													<span class="float-right badge badge-success" id="brating"
+														></span
 													></a
 												>
 											</h5>
-											<span class="badge badge-dark mb-2">Boston, MA</span>
-											<p class="card-text">
-												Web Development, UI/UX, Mobile Development
+											<span class="badge badge-dark mb-2" id="bplace"></span>
+											<p class="card-text" id="bcarriers">
+											
 											</p>
 										</div>
 									</div>
@@ -136,6 +136,9 @@
 		<script
 		src="js/global.js"
 	></script>
+	<script
+	src="js/manage-Bootcamp.js"
+></script>
 		<script
 			src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

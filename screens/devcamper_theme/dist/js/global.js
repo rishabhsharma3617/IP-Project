@@ -2,6 +2,10 @@ document.getElementById('manage_reviews').setAttribute('style','display: none')
 document.getElementById('logoutButton').addEventListener('click',() => {
     sessionStorage.setItem('token','')
     sessionStorage.setItem('u_id','')
+    if(sessionStorage.getItem('u_boot'))
+    {
+        sessionStorage.setItem('u_boot','')
+    }
     sessionStorage.setItem('role','')
   })
   if(sessionStorage.getItem('role') !== 'publisher')
@@ -19,4 +23,10 @@ document.getElementById('logoutButton').addEventListener('click',() => {
   if(!sessionStorage.getItem('token'))
 {
   document.getElementById('addreview').setAttribute('style','display :none')
+}
+if(sessionStorage.getItem('u_boot'))
+{
+    document.getElementById('manage_bootcamp').setAttribute('href','add-bootcamp.html')
+    document.getElementById('manage_bootcamp').setAttribute('href','add-bootcamp-none.html')
+
 }
