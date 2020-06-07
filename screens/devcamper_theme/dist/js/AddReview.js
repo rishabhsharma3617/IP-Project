@@ -3,11 +3,7 @@ const  reviewTitle = document.getElementById('reviewTitle')
 const reviewText = document.getElementById('reviewText')
 
 
-document.getElementById('logoutButton').addEventListener('click',() => {
-  sessionStorage.setItem('token','')
-  sessionStorage.setItem('u_id','')
-  sessionStorage.setItem('role','')
-})
+
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);

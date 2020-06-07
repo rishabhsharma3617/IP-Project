@@ -10,20 +10,7 @@ else
   document.getElementById('registerButt').setAttribute('style','display : none')
 }
 
-if(sessionStorage.getItem('role') !== 'publisher')
-{
-  console.log('heyy')
-  document.getElementById('manage_bootcamp').setAttribute('style','display : none')
-  document.getElementById('manage_reviews').setAttribute('style','display : none')
-  // document.getElementById('manage_bootcamp').setAttribute('visibility','hidden')
-  // document.getElementById('manage_reviews').setAttribute('visibility','hidden')
-}
 
-document.getElementById('logoutButton').addEventListener('click',() => {
-  sessionStorage.setItem('token','')
-  sessionStorage.setItem('u_id','')
-  sessionStorage.setItem('role','')
-})
 
 var radius = document.getElementById('miles')
 var zip = document.getElementById('zip')
