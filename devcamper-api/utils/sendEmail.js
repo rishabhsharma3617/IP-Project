@@ -1,16 +1,16 @@
 const nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport')
 const sendEmail = async options => {
-  const transporter = nodemailer.createTransport(sgTransport({
-   
+  const transporter = nodemailer.createTransport({
+    service : 'SendGrid',
     auth: {
-      api_user: process.env.SMTP_EMAIL,
-      api_key: process.env.SMTP_PASSWORD
+    user: process.env.SMTP_EMAIL,
+    pass: process.env.SMTP_PASSWORD
     }
-  }));
+  });
 
   const message = {
-    from: `${process.env.FROM_NAME} <${process.env.FROM_EMAIL}>`,
+    from: `rishabh171659.cse@chitkara.edu.in`,
     to: options.email,
     subject: options.subject,
     text: options.message
