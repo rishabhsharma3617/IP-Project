@@ -59,6 +59,7 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 // @access    Private
 exports.updateBootcamp = asyncHandler(async (req, res, next) => {
   let bootcamp = await Bootcamp.findById(req.params.id);
+  
 console.log(bootcamp)
   if (!bootcamp) {
     return next(
@@ -75,12 +76,13 @@ console.log(bootcamp)
       )
     );
   }
-
-  bootcamp = await Bootcamp.findOneAndUpdate(req.params.id, req.body, {
+  console.log(req.body)
+  console.log(req.params.id)
+  bootcamp = await Bootcamp.findOneAndUpdate({ _id : req.params.id }, req.body, {
     new: true,
     runValidators: true
   });
-
+  console.log(bootcamp)
   res.status(200).json({ success: true, data: bootcamp });
 });
 

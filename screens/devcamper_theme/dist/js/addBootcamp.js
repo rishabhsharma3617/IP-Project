@@ -9,7 +9,8 @@ var flag = false
  var bootcamp = {}
 if(sessionStorage.getItem('u_boot'))
 {
-    
+    document.getElementById('sub').setAttribute('value','Edit Bootcamp')
+    document.getElementById('p_text').setAttribute('style','display : none')
     flag = true
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -49,7 +50,7 @@ e.preventDefault()
 
     var xhttp = new XMLHttpRequest();
     var cred = {
-        
+        name : named.value,
         description : desc.value,
         website : url.value,
         phone : phone.value,
@@ -59,7 +60,8 @@ e.preventDefault()
         jobAssistance : document.getElementById('jobAssistance').checked,
         jobGuarantee : document.getElementById('jobGuarantee').checked,
         acceptGi : document.getElementById('acceptGi').checked,
-        careers : [document.getElementById('bcareer').value]
+        careers : [document.getElementById('bcareer').value],
+        id : sessionStorage.getItem('u_boot')
     }
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -75,7 +77,7 @@ e.preventDefault()
          document.getElementById('jobAssistance').checked = temp.data.jobAssistance
          document.getElementById('jobGuarantee').checked = temp.data.jobGuarantee
          document.getElementById('acceptGi').checked = temp.data.acceptGi
-         document.getElementById('bcareer').value = temp.data.bcareer
+         document.getElementById('bcareer').value = temp.data.careers
          console.log(JSON.parse( this.response))
         }
         
