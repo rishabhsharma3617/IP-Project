@@ -1,13 +1,7 @@
 const nodemailer = require('nodemailer');
-var sgTransport = require('nodemailer-sendgrid-transport')
+var sgMail = require('@sendgrid/mail')
+sgMail.setApiKey('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');
 const sendEmail = async options => {
-  const transporter = nodemailer.createTransport({
-    service : 'SendGrid',
-    auth: {
-    user: process.env.SMTP_EMAIL,
-    pass: process.env.SMTP_PASSWORD
-    }
-  });
 
   const message = {
     from: `rishabh171659.cse@chitkara.edu.in`,
@@ -16,9 +10,9 @@ const sendEmail = async options => {
     text: options.message
   };
 
-  const info = await transporter.sendMail(message);
-  console.log(info)
-  console.log('Message sent: %s', info.messageId);
+  await sgMail.send(message);
+
+  
 };
 
 module.exports = sendEmail;
