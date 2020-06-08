@@ -4,8 +4,8 @@ const sendEmail = async options => {
   const transporter = nodemailer.createTransport(sgTransport({
    
     auth: {
-      user: process.env.SMTP_EMAIL,
-      pass: process.env.SMTP_PASSWORD
+      api_user: process.env.SMTP_EMAIL,
+      api_key: process.env.SMTP_PASSWORD
     }
   }));
 
